@@ -12,5 +12,6 @@ FROM alpine:latest
 
 COPY --from=builder /usr/src/app/target/release/vot-worker /usr/local/bin/vot-worker
 ENV SERVICE_HOST=0.0.0.0
+RUN apk add --no-cache ca-certificates
 
 CMD ["vot-worker"]
